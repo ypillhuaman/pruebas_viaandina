@@ -54,7 +54,7 @@ pipeline {
             steps {
                 script {
                     sh "cd ${DOCKER_COMPOSE_PATH} && docker compose pull ${IMAGE_NAME}"
-                    sh "cd ${DOCKER_COMPOSE_PATH} && docker compose up -d ${IMAGE_NAME}"
+                    sh "cd ${DOCKER_COMPOSE_PATH} && APP_ENV=dev docker compose up -d ${IMAGE_NAME}"
                 }
             }
         }
