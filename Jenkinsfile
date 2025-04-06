@@ -11,7 +11,7 @@ pipeline {
         IMAGE_TAG = 'latest'
         SONAR_URL = 'http://sonarqube:9000'
         SONAR_TOKEN = 'sqa_c108b77cfc230481ad47558186e1b0979c9ff7f8' // cuidado con tokens hardcodeados en producción
-        DOCKER_COMPOSE_PATH = '/home/fortuna/viaandina/docker-compose/docker-compose.yml'
+        DOCKER_COMPOSE_PATH = '/home/fortuna/viaandina/docker-compose'
     }
 
     stages {
