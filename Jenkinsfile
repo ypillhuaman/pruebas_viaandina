@@ -11,7 +11,7 @@ pipeline {
         IMAGE_TAG = 'latest'
         SONAR_URL = 'http://sonarqube:9000'
         SONAR_TOKEN = 'sqa_c108b77cfc230481ad47558186e1b0979c9ff7f8' // cuidado con tokens hardcodeados en producción
-        DOCKER_COMPOSE_PATH = '/home/fortuna/viaandina/docker-compose'
+        DOCKER_COMPOSE_PATH = '/mnt/docker-compose'
     }
 
     stages {
@@ -37,8 +37,6 @@ pipeline {
             }
         }
 
-        // No se puede usar waitForQualityGate aquí porque no usamos el plugin con withSonarQubeEnv
-
         stage('Build Docker Image') {
             steps {
                 dir('project') {
@@ -55,8 +53,6 @@ pipeline {
         stage('Actualizar Docker Compose') {
             steps {
                 script {
-                    //sh "docker compose --file ${DOCKER_COMPOSE_PATH} pull ${IMAGE_NAME}"
-                    //sh "docker compose --file ${DOCKER_COMPOSE_PATH} up -d ${IMAGE_NAME}"
                     sh "cd ${DOCKER_COMPOSE_PATH} && docker compose pull ${IMAGE_NAME}"
                     sh "cd ${DOCKER_COMPOSE_PATH} && docker compose up -d ${IMAGE_NAME}"
                 }
