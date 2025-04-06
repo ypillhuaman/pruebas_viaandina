@@ -55,8 +55,8 @@ pipeline {
         stage('Actualizar Docker Compose') {
             steps {
                 script {
-                    sh "docker compose -f ${DOCKER_COMPOSE_PATH} pull ${IMAGE_NAME}"
-                    sh "docker compose -f ${DOCKER_COMPOSE_PATH} up -d ${IMAGE_NAME}"
+                    sh "docker compose --file ${DOCKER_COMPOSE_PATH} pull ${IMAGE_NAME}"
+                    sh "docker compose --file ${DOCKER_COMPOSE_PATH} up -d ${IMAGE_NAME}"
                 }
             }
         }
