@@ -10,7 +10,7 @@ pipeline {
         IMAGE_NAME = 'yurigrow/viand-scheduler-msvc'
         IMAGE_TAG = 'latest'
         SONAR_URL = 'http://sonarqube:9000'
-        SONAR_TOKEN = 'sqa_c108b77cfc230481ad47558186e1b0979c9ff7f8' // cuidado con tokens hardcodeados en producción
+        SONAR_TOKEN = 'sqa_8b7b94ada4a8002e35b14371abc86c7dcebed6d1' // cuidado con tokens hardcodeados en producción
         DOCKER_COMPOSE_PATH = '/mnt/docker-compose'
     }
 
