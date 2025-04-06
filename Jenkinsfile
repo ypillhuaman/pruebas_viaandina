@@ -26,6 +26,7 @@ pipeline {
         stage('Análisis con SonarQube') {
             steps {
                 dir('project') {
+                    sh 'chmod +x ./mvnw'
                     sh """
                         ./mvnw clean verify sonar:sonar \
                         -Dsonar.host.url=${SONAR_URL} \
