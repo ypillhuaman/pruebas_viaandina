@@ -53,7 +53,7 @@ pipeline {
         stage('Actualizar Docker Compose') {
             steps {
                 script {
-                    sh "cd ${DOCKER_COMPOSE_PATH} && docker compose pull ${IMAGE_NAME}"
+                    sh "cd ${DOCKER_COMPOSE_PATH} && APP_ENV=dev docker compose pull ${IMAGE_NAME}"
                     sh "cd ${DOCKER_COMPOSE_PATH} && APP_ENV=dev docker compose up -d ${IMAGE_NAME}"
                 }
             }
