@@ -3,18 +3,16 @@ pipeline {
 
     parameters {
         credentials(name: 'DOCKER_CREDENTIALS', description: 'Docker Hub credentials', defaultValue: '', required: true)
-        string(name: 'SONAR_URL', description: 'Sonar token', defaultValue: 'http://sonarqube:9000', required: true)
+        string(name: 'SONAR_URL', description: 'Sonar URL', defaultValue: 'http://sonarqube:9000', required: true)
         string(name: 'SONAR_TOKEN', description: 'Sonar token', defaultValue: '', required: true)
         string(name: 'ENVIRONMENT', description: 'Environment', defaultValue: 'dev', required: true)
     }
 
     environment {
-        PROJECT_REPO = 'https://github.com/ypillhuaman/viaandina-scheduler-msvc.git' // cambia a tu URL real
+        PROJECT_REPO = 'https://github.com/ypillhuaman/viaandina-scheduler-msvc.git'
         SERVICE_NAME = 'viand-scheduler-msvc'
         IMAGE_NAME = 'yurigrow/viand-scheduler-msvc'
         IMAGE_TAG = 'latest'
-        //SONAR_URL = 'http://sonarqube:9000'
-        //SONAR_TOKEN = 'sqa_8b7b94ada4a8002e35b14371abc86c7dcebed6d1' // cuidado con tokens hardcodeados en producción
         DOCKER_COMPOSE_PATH = '/mnt/docker-compose'
     }
 
